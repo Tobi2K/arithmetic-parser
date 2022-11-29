@@ -38,11 +38,11 @@ Result: 5.333333333333334
 
 Enter your equation: 
 (1+1))
-Exception: Could not parse (1+1)); Reading: )
+Exception: Could not parse '(1+1)'); Reading: )
 ```
 Note that the numbers are converted to floats.
 
-You can also enable debugging by setting the `print_debug` variable to True.
+You can also enable debugging by adding the `--debug` command-line argument.
 This shows every recursive descent step according to the following grammar:
 - `E => TE'`
 - `E' => +TE' | -TE' | ε`

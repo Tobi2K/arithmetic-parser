@@ -41,7 +41,7 @@ def e():
     if current == ')' and running_e > 1:
         running_e -= 1
         return e_prime_val
-    raise Exception("Could not parse " + inp + "; Reading: " + current)
+    raise Exception("Could not parse '" + inp + "'; Reading: " + current)
 
 
 def e_prime(prev_val):
@@ -149,12 +149,23 @@ def f():
             temp += current
             update_current()
         return temp
-    raise Exception("Can't parse " + current)
+    raise Exception("Can't parse '" + current + "'! Input: " + inp)
 
 
 if __name__ == "__main__":
+    # Parse arguments
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Run arithmetic parser.',
+                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    # general arguments
+    parser.add_argument('--debug', help='Whether to show debug printing or not.', nargs='?', const=True)
+
+    args = parser.parse_args()
+    print_debug = args.debug
     while True:
         current_index = 0
+        running_e = 0
         print("Enter your equation: ")
         inp = input()
         inp = inp.replace(' ', '')
