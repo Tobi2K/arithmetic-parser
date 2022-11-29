@@ -50,15 +50,17 @@ def e_prime(prev_val):
             print("E' -> +TE'")
         update_current()
         t_val = t()
+        t_val = str(float(prev_val) + float(t_val))
         e_prime_val = e_prime(t_val)
-        return str(float(prev_val) + float(e_prime_val))
+        return e_prime_val
     elif current == minus:
         if print_debug:
             print("E' -> -TE'")
         update_current()
         t_val = t()
+        t_val = str(float(prev_val) - float(t_val))
         e_prime_val = e_prime(t_val)
-        return str(float(prev_val) - float(e_prime_val))
+        return e_prime_val
     else:
         if print_debug:
             print("E' -> empty")
